@@ -1,29 +1,43 @@
 # skills
 
-Agent skills by usernamedlo.
+Agent skills by usernamedlo, for Claude Code and any agent supported by the [skills CLI](https://www.npmjs.com/package/skills).
 
-## design-dlo
+## Install
 
-Applies a design, visual, UX or UI change request to the code, in the project's house style. It is user-invoked: type `/design-dlo` followed by the change you want.
-
-### Install
+One skill:
 
 ```bash
-npx skills add usernamedlo/skills -g -s design-dlo
+npx skills add usernamedlo/skills -g -s <skill-name>
 ```
 
-### Dependencies
-
-The skill loads other skills and MCP servers on demand. One that is missing is skipped and named in the final report, so the skill still runs without them.
-
-Skills:
+All of them:
 
 ```bash
-npx skills add jakubkrehel/skills -g      # pick better-ui, better-layout, better-typography, better-colors, better-writing, better-accessibility
-npx skills add emilkowalski/skills -g -s animate
-npx skills add nextlevelbuilder/ui-ux-pro-max-skill -g -s ui-ux-pro-max      # needs Python 3
-npx skills add microsoft/playwright-cli -g -s playwright-cli
-npx skills add mattpocock/skills -g -s prototype
+npx skills add usernamedlo/skills -g -s '*'
 ```
 
-MCP servers, used for new surfaces only: `mobbin`, `inspo`, `21st`, `aceternityui`, `reui`.
+Drop `-g` to install into the current project instead of your user directory. List what the repository offers with `npx skills add usernamedlo/skills --list`.
+
+Update installed skills with `npx skills update`.
+
+## Skills
+
+| Skill | Invocation | What it does |
+| --- | --- | --- |
+| [design-dlo](skills/design-dlo) | `/design-dlo <change>` | Applies a design, visual, UX or UI change request to the code, in the project's house style. |
+
+Each skill's folder has its own README with its dependencies.
+
+## Layout
+
+```
+skills/
+  <skill-name>/
+    SKILL.md      # entry point, with name and description in its frontmatter
+    README.md     # human docs: usage and dependencies
+    *.md          # reference files the skill points to
+```
+
+## License
+
+[MIT](LICENSE)
