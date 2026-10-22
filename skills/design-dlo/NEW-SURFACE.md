@@ -20,6 +20,7 @@ Done when you hold 2 or 3 references and can say in one line what you take from 
 
 Write the proposal in ten lines or fewer:
 
+- **Mode**: the surface's `impeccable` mode (Operate, Persuade, Read or Experience), chosen from the surface rather than the product, and what it puts first.
 - **Structure**: the surface's regions, in reading order.
 - **References**: each one kept, and what you take from it.
 - **Reuse**: the project components and tokens it is built from.

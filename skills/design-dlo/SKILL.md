@@ -28,7 +28,7 @@ Done when you have stated which one it is, in one line.
 
 ## 3. Load the rules
 
-Load `better-ui` and `better-layout`. Then load every row the request touches:
+Load `better-ui` and `better-layout`, then load `impeccable` and read its `reference/craft-floor.md`. Then load every row the request touches:
 
 | The request touches | Load |
 | --- | --- |
@@ -37,9 +37,10 @@ Load `better-ui` and `better-layout`. Then load every row the request touches:
 | Color | `better-colors` |
 | Copy | `better-writing` |
 | Focus, keyboard, hit areas, contrast | `better-accessibility` |
+| Tone: bolder, quieter, simpler, more delightful | `impeccable`'s matching reference: `reference/bolder.md`, `quieter.md`, `distill.md` or `delight.md` |
 | Forms, navigation, feedback states, charts | `ui-ux-pro-max`, one `--domain` or `--stack` query. The house style stands in for its `--design-system` step. Its script is `scripts/search.py` under the skill's own base directory: use that path when `CLAUDE_PLUGIN_ROOT` is unset. |
 
-Take each skill's rules, values and checks. The process and the output belong to this skill: where a loaded skill prescribes an audit, a report format or a plan file, the steps below replace it.
+Take each skill's rules, values and checks. The process and the output belong to this skill: where a loaded skill prescribes a setup script, an audit, a report format or a plan file, the steps below replace it.
 
 Done when every matching row is loaded.
 
@@ -58,14 +59,15 @@ Done when every part of the request is visible in the diff and the diff stays on
 ## 6. Verify
 
 1. Run the project's type check and lint on the files you touched.
-2. Look at the surface. When a dev server is already running, load `playwright-cli` and screenshot the surface, navigating read-only: the server may sit on a production database, so submit nothing. Starting a server is the user's call. With no server running, the surface is **not visually verified**.
+2. Run `impeccable detect` on the files you touched, through the `scripts/impeccable` launcher under the skill's base directory. Fix each primary finding, or keep it where the house style chose it and say so in the report.
+3. Look at the surface. When a dev server is already running, load `playwright-cli` and screenshot the surface, navigating read-only: the server may sit on a production database, so submit nothing. Starting a server is the user's call. With no server running, the surface is **not visually verified**.
 
-Done when the touched files pass type check and lint (or each remaining failure is shown to predate your change), and the surface is either seen in a screenshot that shows the request applied or marked not visually verified.
+Done when the touched files pass type check and lint (or each remaining failure is shown to predate your change), every detector finding is fixed or traced to the house style, and the surface is either seen in a screenshot that shows the request applied or marked not visually verified.
 
 ## 7. Report
 
 - **Changed**: what is different on the surface, with file links.
-- **Verified**: what the screenshot shows, or "not visually verified" with the URL to open.
+- **Verified**: what the screenshot shows, or "not visually verified" with the URL to open; detector findings kept for the house style.
 - **Spotted**: defects outside the surface, one line each.
 - **Skipped**: every unavailable skill or MCP server.
 

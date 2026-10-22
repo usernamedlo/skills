@@ -27,6 +27,7 @@ npx skills add emilkowalski/skills -g -s animate
 npx skills add nextlevelbuilder/ui-ux-pro-max-skill -g -s ui-ux-pro-max      # needs Python 3
 npx skills add microsoft/playwright-cli -g -s playwright-cli
 npx skills add mattpocock/skills -g -s prototype
+npx skills add pbakaus/impeccable -g
 ```
 
 MCP servers, used for new surfaces only: `mobbin`, `inspo`, `21st`, `aceternityui`, `reui`.
